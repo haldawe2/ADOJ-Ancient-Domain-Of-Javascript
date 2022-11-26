@@ -4,7 +4,6 @@ class Game{
   }
 
   _assignControls() {
-    // Controles del teclado
     document.addEventListener('keydown', (event) => {
       switch (event.key) {
         case 'ArrowLeft':
@@ -18,6 +17,12 @@ class Game{
           break;
         case 'ArrowDown':
           this.player.moveRight();
+          break;
+        case 'q':
+          this.player.attackMele();
+          break;
+        case 'e':
+          this.player.attackRanged();
           break;
         default:
           break;
