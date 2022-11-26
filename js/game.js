@@ -6,12 +6,18 @@ class Game{
   _assignControls() {
     // Controles del teclado
     document.addEventListener('keydown', (event) => {
-      switch (event.code) {
+      switch (event.key) {
         case 'ArrowLeft':
-          this.meatball.moveLeft();
+          this.player.moveLeft();
           break;
         case 'ArrowRight':
-          this.meatball.moveRight();
+          this.player.moveRight();
+          break;
+        case 'ArrowUp':
+          this.player.moveRight();
+          break;
+        case 'ArrowDown':
+          this.player.moveRight();
           break;
         default:
           break;
