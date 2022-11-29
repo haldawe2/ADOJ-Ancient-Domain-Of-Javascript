@@ -13,10 +13,10 @@ class Game{
           this.player.moveRight();
           break;
         case 'ArrowUp':
-          this.player.moveRight();
+          this.player.moveUp();
           break;
         case 'ArrowDown':
-          this.player.moveRight();
+          this.player.moveDown();
           break;
         case 'q':
           this.player.attackMele();
@@ -31,6 +31,7 @@ class Game{
   }
 
   _update() {
+    
     window.requestAnimationFrame(() => this._update());
   }
 
