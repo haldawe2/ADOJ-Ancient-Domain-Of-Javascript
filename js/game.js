@@ -2,6 +2,7 @@ class Game{
   constructor(context) {
     this.ctx = context;
     this.dungeon = [];
+    this.player;
   }
 
   _createDungeon() {
@@ -46,6 +47,13 @@ class Game{
     }
   }
 
+  _renderPlayer() {
+    const lengthX = 1000 / this.dungeon.length;
+    const lengthY = 600 / this.dungeon[0].length;
+    this.ctx.fillStyle = `${this.player.color}`
+    this.ctx.fillRect(this.player.position.x * lengthX, this.player.position.y * lengthY, 1000 / this.dungeon.length, 600 / this.dungeon[0].length)
+  }
+
   _assignControls() {
     document.addEventListener('keydown', (event) => {
       switch (event.key) {
@@ -75,12 +83,14 @@ class Game{
 
   _update() {
     this._renderDungeon();
+    this._renderPlayer();
     window.requestAnimationFrame(() => this._update());
   }
 
   start() {
     this._createDungeon();
     this._createWalls();
+    this.player = new Player(this);
     this._assignControls();
     this._update();
   }
