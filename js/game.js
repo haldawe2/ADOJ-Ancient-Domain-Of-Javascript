@@ -5,12 +5,12 @@ class Game{
     this.player;
   }
 
-  _createDungeon() {
+  _createDungeon(x, y) {
     //creates a 9x9 matrix with floor (white color)
-    this.dungeon = new Array(9);
-    for (let i = 0; i < 9; i++) {
-        this.dungeon[i] = new Array(9);
-        for (let j = 0; j < 9; j++) {
+    this.dungeon = new Array(x);
+    for (let i = 0; i < this.dungeon.length; i++) {
+        this.dungeon[i] = new Array(y);
+        for (let j = 0; j < this.dungeon[i].length; j++) {
             this.dungeon[i][j] = "white";
         }
     }
@@ -88,9 +88,9 @@ class Game{
   }
 
   start() {
-    this._createDungeon();
+    this._createDungeon(9, 9);
     this._createWalls();
-    this.player = new Player(this);
+    this.player = new Player(this)
     this._assignControls();
     this._update();
   }

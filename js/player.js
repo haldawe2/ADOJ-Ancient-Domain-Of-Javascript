@@ -32,7 +32,7 @@ class Player {
         }
     }
 
-    attackMele () {}
+    attackMele() {}
 
     attackRanged () {}
 
