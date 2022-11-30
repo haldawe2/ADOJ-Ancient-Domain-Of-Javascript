@@ -8,8 +8,4 @@ class Enemy extends Player{
         this.color = "red"
         this.game = game
     }
-
-    _receiveDamage()
-
-
 }

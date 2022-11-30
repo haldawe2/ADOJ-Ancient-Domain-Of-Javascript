@@ -34,6 +34,14 @@ class Game{
       }
   }
 
+  _checkDeaths() {
+    for (let i = 0; i < this.enemies.length; i++) {
+      if (this.enemies[i].health <= 0) {
+        this.enemies.splice(i, 1);
+      }
+    }
+  }
+
   _renderDungeon() {
     for (let i = 0; i < this.dungeon.length; i++) {
       for (let j = 0; j < this.dungeon[i].length; j++) {
@@ -53,6 +61,15 @@ class Game{
     const lengthY = 600 / this.dungeon[0].length;
     this.ctx.fillStyle = `${this.player.color}`
     this.ctx.fillRect(this.player.position.x * lengthX, this.player.position.y * lengthY, 1000 / this.dungeon.length, 600 / this.dungeon[0].length)
+  }
+
+  _renderEnemies() {
+    const lengthX = 1000 / this.dungeon.length;
+    const lengthY = 600 / this.dungeon[0].length;
+    for (let i = 0; i < this.enemies.length; i++) {
+      this.ctx.fillStyle = `${this.enemies[i].color}`
+      this.ctx.fillRect(this.enemies[i].position.x * lengthX, this.enemies[i].position.y * lengthY, 1000 / this.dungeon.length, 600 / this.dungeon[0].length)
+    }
   }
 
   _assignControls() {

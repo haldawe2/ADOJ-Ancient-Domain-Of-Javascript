@@ -12,7 +12,7 @@ class Player {
         const attacked = false;
         for (enemy of this.game.enemies) {
             if (this.position.x - 1 === enemy.position.x && this.position.y === enemy.position.y) {
-                this.attackMele(enemy);
+                enemy._receiveDamage(this.attackMele());
                 attacked = true
             }
         }
@@ -25,7 +25,7 @@ class Player {
         const attacked = false;
         for (enemy of this.game.enemies) {
             if (this.position.x + 1 === enemy.position.x && this.position.y === enemy.position.y) {
-                this.attackMele(enemy);
+                enemy._receiveDamage(this.attackMele());
                 attacked = true
             }
         }
@@ -38,7 +38,7 @@ class Player {
         const attacked = false;
         for (enemy of this.game.enemies) {
             if (this.position.x === enemy.position.x && this.position.y - 1 === enemy.position.y) {
-                this.attackMele(enemy);
+                enemy._receiveDamage(this.attackMele());
                 attacked = true
             }
         }
@@ -51,7 +51,7 @@ class Player {
         const attacked = false;
         for (enemy of this.game.enemies) {
             if (this.position.x === enemy.position.x && this.position.y + 1 === enemy.position.y) {
-                this.attackMele(enemy);
+                enemy._receiveDamage(this.attackMele());
                 attacked = true
             }
         }
@@ -60,9 +60,13 @@ class Player {
         }
     }
 
-    attackMele(enemy) {}
+    attackMele() {
+        return this.attack;
+    }
 
     attackRanged () {}
 
-    _receiveDamage() {}
+    _receiveDamage(damage) {
+        this.health -= damage - this.defense;
+    }
 }
