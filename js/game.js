@@ -3,6 +3,7 @@ class Game{
     this.ctx = context;
     this.dungeon = [];
     this.player;
+    this.enemies = [];
   }
 
   _createDungeon(x, y) {

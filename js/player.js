@@ -9,30 +9,58 @@ class Player {
     }
 
     moveLeft() {
-        if (this.game.dungeon[this.position.x - 1][this.position.y] !== 'brown') {
+        const attacked = false;
+        for (enemy of this.game.enemies) {
+            if (this.position.x - 1 === enemy.position.x && this.position.y === enemy.position.y) {
+                this.attackMele(enemy);
+                attacked = true
+            }
+        }
+        if (this.game.dungeon[this.position.x - 1][this.position.y] !== 'brown' && !attacked) {
             this.position.x -= 1;
         }
     }
 
     moveRight() {
-        if (this.game.dungeon[this.position.x + 1][this.position.y] !== 'brown') {
+        const attacked = false;
+        for (enemy of this.game.enemies) {
+            if (this.position.x + 1 === enemy.position.x && this.position.y === enemy.position.y) {
+                this.attackMele(enemy);
+                attacked = true
+            }
+        }
+        if (this.game.dungeon[this.position.x + 1][this.position.y] !== 'brown' && !attacked) {
             this.position.x += 1;
         }
     }
 
     moveUp() {
-        if (this.game.dungeon[this.position.x][this.position.y - 1] !== 'brown') {
+        const attacked = false;
+        for (enemy of this.game.enemies) {
+            if (this.position.x === enemy.position.x && this.position.y - 1 === enemy.position.y) {
+                this.attackMele(enemy);
+                attacked = true
+            }
+        }
+        if (this.game.dungeon[this.position.x][this.position.y - 1] !== 'brown' && !attacked) {
             this.position.y -= 1;
         }
     }
 
     moveDown() {
-        if (this.game.dungeon[this.position.x][this.position.y + 1] !== 'brown') {
+        const attacked = false;
+        for (enemy of this.game.enemies) {
+            if (this.position.x === enemy.position.x && this.position.y + 1 === enemy.position.y) {
+                this.attackMele(enemy);
+                attacked = true
+            }
+        }
+        if (this.game.dungeon[this.position.x][this.position.y + 1] !== 'brown' && !attacked) {
             this.position.y += 1;
         }
     }
 
-    attackMele() {}
+    attackMele(enemy) {}
 
     attackRanged () {}
 
