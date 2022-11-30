@@ -10,8 +10,8 @@ class Player {
 
     moveLeft() {
         const attacked = false;
-        for (enemy of this.game.enemies) {
-            if (this.position.x - 1 === enemy.position.x && this.position.y === enemy.position.y) {
+        for (let i = 0; i < this.game.enemies.length; i++) {
+            if (this.position.x - 1 === this.game.enemies[i].x && this.position.y === this.game.enemies[i].position.y) {
                 enemy._receiveDamage(this.attackMele());
                 attacked = true
             }
@@ -22,10 +22,10 @@ class Player {
     }
 
     moveRight() {
-        const attacked = false;
-        for (enemy of this.game.enemies) {
-            if (this.position.x + 1 === enemy.position.x && this.position.y === enemy.position.y) {
-                enemy._receiveDamage(this.attackMele());
+        let attacked = false;
+        for (let i = 0; i < this.game.enemies.length; i++) {
+            if (this.position.x + 1 === this.game.enemies[i].position.x && this.position.y === this.game.enemies[i].position.y) {
+                this.game.enemies[i]._receiveDamage(this.attackMele());
                 attacked = true
             }
         }
@@ -36,8 +36,8 @@ class Player {
 
     moveUp() {
         const attacked = false;
-        for (enemy of this.game.enemies) {
-            if (this.position.x === enemy.position.x && this.position.y - 1 === enemy.position.y) {
+        for (let i = 0; i < this.game.enemies.length; i++) {
+            if (this.position.x === this.game.enemies[i].x && this.position.y - 1 === this.game.enemies[i].y) {
                 enemy._receiveDamage(this.attackMele());
                 attacked = true
             }
@@ -49,8 +49,8 @@ class Player {
 
     moveDown() {
         const attacked = false;
-        for (enemy of this.game.enemies) {
-            if (this.position.x === enemy.position.x && this.position.y + 1 === enemy.position.y) {
+        for (let i = 0; i < this.game.enemies.length; i++) {
+            if (this.position.x === this.game.enemies[i].x && this.position.y + 1 === this.game.enemies[i].y) {
                 enemy._receiveDamage(this.attackMele());
                 attacked = true
             }

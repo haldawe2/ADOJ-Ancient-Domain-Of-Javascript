@@ -34,6 +34,10 @@ class Game{
       }
   }
 
+  _createEnemy() {
+    this.enemies.push(new Enemy(this, 2, 1));
+  }
+
   _checkDeaths() {
     for (let i = 0; i < this.enemies.length; i++) {
       if (this.enemies[i].health <= 0) {
@@ -100,7 +104,9 @@ class Game{
   }
 
   _update() {
+    this._checkDeaths();
     this._renderDungeon();
+    this._renderEnemies();
     this._renderPlayer();
     window.requestAnimationFrame(() => this._update());
   }
@@ -109,6 +115,7 @@ class Game{
     this._createDungeon(9, 9);
     this._createWalls();
     this.player = new Player(this)
+    this._createEnemy();
     this._assignControls();
     this._update();
   }
