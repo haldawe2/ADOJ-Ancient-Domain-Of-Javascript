@@ -8,4 +8,41 @@ class Enemy extends Player{
         this.color = "red"
         this.game = game
     }
+
+    _moveEnemy() {
+        // If next to player, attack
+        if (this.position.x + 1 === this.game.player.position.x && this.position.y === this.game.player.position.y) {
+            this.game.player._receiveDamage(this.attack);
+            return;
+        }
+        if (this.position.x - 1 === this.game.player.position.x && this.position.y === this.game.player.position.y) {
+            this.game.player._receiveDamage(this.attack);
+            return;
+        }
+        if (this.position.x === this.game.player.position.x && this.position.y + 1 === this.game.player.position.y) {
+            this.game.player._receiveDamage(this.attack);
+            return;
+        }
+        if (this.position.x + 1 === this.game.player.position.x && this.position.y - 1 === this.game.player.position.y) {
+            this.game.player._receiveDamage(this.attack);
+            return;
+        }
+        // If not, move
+        if (this.position.y < this.game.player.position.y && this.game.dungeon[this.position.x][this.position.y + 1] !== 'brown') {
+            this.position.y += 1;
+            return;
+        }
+        if (this.position.y > this.game.player.position.y && this.game.dungeon[this.position.x][this.position.y - 1] !== 'brown') {
+            this.position.y -= 1
+            return;
+        }
+        if (this.position.x < this.game.player.position.x && this.game.dungeon[this.position.x + 1][this.position.y] !== 'brown') {
+            this.position.x += 1
+            return;
+        }
+        if (this.position.x > this.game.player.position.x && this.game.dungeon[this.position.x - 1][this.position.y] !== 'brown') {
+            this.position.x -= 1
+            return;
+        }
+    }
 }

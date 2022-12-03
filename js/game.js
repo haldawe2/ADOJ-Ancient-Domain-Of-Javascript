@@ -84,18 +84,23 @@ class Game{
       switch (event.key) {
         case 'ArrowLeft':
           this.player.moveLeft();
+          this.enemies.forEach((enemy) => (enemy._moveEnemy()));
           break;
         case 'ArrowRight':
           this.player.moveRight();
+          this.enemies.forEach((enemy) => (enemy._moveEnemy()));
           break;
         case 'ArrowUp':
           this.player.moveUp();
+          this.enemies.forEach((enemy) => (enemy._moveEnemy()));
           break;
         case 'ArrowDown':
           this.player.moveDown();
+          this.enemies.forEach((enemy) => (enemy._moveEnemy()));
           break;
         case 'q':
           this.player.attackRanged();
+          this.enemies.forEach((enemy) => (enemy._moveEnemy()));
           break;
         default:
           break;
