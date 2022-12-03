@@ -95,9 +95,6 @@ class Game{
           this.player.moveDown();
           break;
         case 'q':
-          this.player.attackMele();
-          break;
-        case 'e':
           this.player.attackRanged();
           break;
         default:
