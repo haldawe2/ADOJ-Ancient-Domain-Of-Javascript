@@ -72,7 +72,7 @@ class Player {
         let closestEnemy = this.game.enemies[0];
         let closestDistance = Math.sqrt((this.x - this.game.enemies[0].x)**2 + (this.y - this.game.enemies[0].y)**2);
         for (let enemy of this.game.enemies) {
-            let distance = Math.sqrt((this.x - enemy.x)**2 + (this.y - enemy.y)**2)
+            let distance = Math.sqrt((this.x - enemy.position.x)**2 + (this.y - enemy.position.y)**2)
             if (distance < closestDistance) {
                 closestDistance = distance;
                 closestEnemy = enemy;
