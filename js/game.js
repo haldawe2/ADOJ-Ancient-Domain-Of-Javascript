@@ -4,6 +4,7 @@ class Game{
     this.dungeon = [];
     this.player;
     this.enemies = [];
+    this.exit = {}
   }
 
   _createDungeon(x, y) {
@@ -108,7 +109,22 @@ class Game{
     });
   }
 
+  _createExit() {
+    this.exit.x = this.dungeon.length - 1;
+    this.exit.y = Math.floor(this.dungeon[0].length / 2);
+    this.dungeon[this.exit.x][this.exit.y] = 'green'
+  }
+
+  _checkWin() {
+    if (this.player.position.x === this.exit.x && this.player.position.y === this.exit.y) {
+      const canvas = document.getElementById('canvas');
+      canvas.classList.add('hidden');
+      document.getElementById('win-page').style = 'display: flex'
+    }
+  }
+
   _update() {
+    this._checkWin();
     this._checkDeaths();
     this._renderDungeon();
     this._renderEnemies();
@@ -119,6 +135,7 @@ class Game{
   start() {
     this._createDungeon(9, 9);
     this._createWalls();
+    this._createExit();
     this.player = new Player(this);
     this._createEnemies();
     this._assignControls();
