@@ -123,8 +123,17 @@ class Game{
     }
   }
 
+  _checkLoss() {
+    if (this.player.health <= 0) {
+      const canvas = document.getElementById('canvas');
+      canvas.classList.add('hidden');
+      document.getElementById('lose-page').style = 'display: flex'
+    }
+  }
+
   _update() {
     this._checkWin();
+    this._checkLoss();
     this._checkDeaths();
     this._renderDungeon();
     this._renderEnemies();
