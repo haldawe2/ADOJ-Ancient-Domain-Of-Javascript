@@ -5,6 +5,7 @@ class Game{
     this.player;
     this.enemies = [];
     this.exit = {}
+    this.cooldown = false
   }
 
   _createDungeon(x, y) {
@@ -88,24 +89,44 @@ class Game{
     document.addEventListener('keydown', (event) => {
       switch (event.key) {
         case 'ArrowLeft':
-          this.player.moveLeft();
-          this.enemies.forEach((enemy) => (enemy._moveEnemy()));
+          if (!this.cooldown) {
+            this.player.moveLeft();
+            this.enemies.forEach((enemy) => (enemy._moveEnemy()));
+          }
+          this.cooldown = true;
+          setTimeout(() => {this.cooldown = false}, 500);
           break;
         case 'ArrowRight':
-          this.player.moveRight();
-          this.enemies.forEach((enemy) => (enemy._moveEnemy()));
+          if (!this.cooldown) {
+            this.player.moveRight();
+            this.enemies.forEach((enemy) => (enemy._moveEnemy()));
+          }
+          this.cooldown = true;
+          setTimeout(() => {this.cooldown = false}, 500);
           break;
         case 'ArrowUp':
-          this.player.moveUp();
-          this.enemies.forEach((enemy) => (enemy._moveEnemy()));
+          if (this.cooldown) {
+            this.player.moveUp();
+            this.enemies.forEach((enemy) => (enemy._moveEnemy()));
+          }
+          this.cooldown = true;
+          setTimeout(() => {this.cooldown = false}, 500);
           break;
         case 'ArrowDown':
-          this.player.moveDown();
-          this.enemies.forEach((enemy) => (enemy._moveEnemy()));
+          if (!this.cooldown) {
+            this.player.moveDown();
+            this.enemies.forEach((enemy) => (enemy._moveEnemy()));
+          }
+          this.cooldown = true;
+          setTimeout(() => {this.cooldown = false}, 500);
           break;
         case 'q':
-          this.player.attackRanged();
-          this.enemies.forEach((enemy) => (enemy._moveEnemy()));
+          if (!this.cooldown) {
+            this.player.attackRanged();
+            this.enemies.forEach((enemy) => (enemy._moveEnemy()));
+          }
+          this.cooldown = true;
+          setTimeout(() => {this.cooldown = false}, 500);
           break;
         default:
           break;

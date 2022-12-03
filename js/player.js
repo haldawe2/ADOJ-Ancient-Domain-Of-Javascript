@@ -4,8 +4,8 @@ class Player {
         this.attack = attack;
         this.defense = defense;
         this.position = {x: 1, y: 2};
-        this.color = "blue"
-        this.game = game
+        this.color = "blue";
+        this.game = game;
     }
 
     moveLeft() {
