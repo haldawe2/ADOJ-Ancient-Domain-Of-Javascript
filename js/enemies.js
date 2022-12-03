@@ -10,7 +10,7 @@ class Enemy extends Player{
     }
 
     _moveEnemy() {
-        // If next to player, attack
+        // If next to player, attack.
         if (this.position.x + 1 === this.game.player.position.x && this.position.y === this.game.player.position.y) {
             this.game.player._receiveDamage(this.attack);
             return;
@@ -27,7 +27,7 @@ class Enemy extends Player{
             this.game.player._receiveDamage(this.attack);
             return;
         }
-        // If not, move
+        // If not, move.
         if (this.position.y < this.game.player.position.y && this.game.dungeon[this.position.x][this.position.y + 1] !== 'brown') {
             this.position.y += 1;
             return;

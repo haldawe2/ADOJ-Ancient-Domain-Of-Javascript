@@ -8,6 +8,7 @@ class Game{
   }
 
   _createDungeon(x, y) {
+    //Creates and matrix of X * Y, then assigns by default a "floor" for later rendering.
     this.dungeon = new Array(x);
     for (let i = 0; i < x; i++) {
         this.dungeon[i] = new Array(y);
@@ -18,14 +19,14 @@ class Game{
 }
 
   _createWalls() {
-      //top and bottom walls
+      //Top and bottom walls.
       for (let i = 0; i < this.dungeon.length; i++) {
           this.dungeon[i][0] = "brown"
       }
       for (let i = 0; i < this.dungeon.length; i++) {
           this.dungeon[i][this.dungeon.length - 1] = "brown"
       }
-      //left and right walls
+      //Left and right walls.
       for (let i = 0; i < this.dungeon.length; i++) {
           this.dungeon[0][i] = "brown"
       }
@@ -35,6 +36,8 @@ class Game{
   }
 
   _renderDungeon() {
+    //Divides canvas in equal squares depending on dungeon size,
+    //then renders the image/color inside the correspondent dungeon coordinates.
     for (let i = 0; i < this.dungeon.length; i++) {
       for (let j = 0; j < this.dungeon[i].length; j++) {
         this.ctx.fillStyle = `${this.dungeon[i][j]}`;
@@ -49,6 +52,7 @@ class Game{
   }
 
   _createEnemies() {
+    //Creates two enemies in the right half, including middle row, without spawning in walls.
     for (let i = 0; i < 2; i++) {
       let randomX = Math.floor(Math.random() * Math.ceil((this.dungeon.length - 2) / 2)) + Math.floor(this.dungeon.length / 2);
       let randomY = Math.floor(Math.random() * (this.dungeon[0].length - 2)) + 1;
