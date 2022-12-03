@@ -7,11 +7,10 @@ class Game{
   }
 
   _createDungeon(x, y) {
-    //creates a 9x9 matrix with floor (white color)
     this.dungeon = new Array(x);
-    for (let i = 0; i < this.dungeon.length; i++) {
+    for (let i = 0; i < x; i++) {
         this.dungeon[i] = new Array(y);
-        for (let j = 0; j < this.dungeon[i].length; j++) {
+        for (let j = 0; j < y; j++) {
             this.dungeon[i][j] = "white";
         }
     }
@@ -48,13 +47,13 @@ class Game{
     }
   }
 
-  // _createEnemies() {
-  //   let randomX = (this.matrix.length / 2)
-  //   let randomY = (Math.floor(Math.random()) * (this.matrix[0].length - 2)) + 1
-  //   for (let i = 0; i < 2; i++) {
-  //     this.enemies.push(new Enemy(this, randomX, randomY));
-  //   }
-  // }
+  _createEnemies() {
+    for (let i = 0; i < 2; i++) {
+      let randomX = Math.floor(Math.random() * Math.ceil((this.dungeon.length - 2) / 2)) + Math.floor(this.dungeon.length / 2);
+      let randomY = Math.floor(Math.random() * (this.dungeon[0].length - 2)) + 1;
+      this.enemies.push(new Enemy(this, randomX, randomY));
+    }
+  }
 
   _checkDeaths() {
     for (let i = 0; i < this.enemies.length; i++) {
@@ -116,10 +115,10 @@ class Game{
   }
 
   start() {
-    this._createDungeon(12, 8);
+    this._createDungeon(9, 9);
     this._createWalls();
-    this.player = new Player(this)
-    // this._createEnemies();
+    this.player = new Player(this);
+    this._createEnemies();
     this._assignControls();
     this._update();
   }
