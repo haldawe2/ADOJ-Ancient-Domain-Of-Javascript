@@ -34,18 +34,6 @@ class Game{
       }
   }
 
-  _createEnemy() {
-    this.enemies.push(new Enemy(this, 2, 1));
-  }
-
-  _checkDeaths() {
-    for (let i = 0; i < this.enemies.length; i++) {
-      if (this.enemies[i].health <= 0) {
-        this.enemies.splice(i, 1);
-      }
-    }
-  }
-
   _renderDungeon() {
     for (let i = 0; i < this.dungeon.length; i++) {
       for (let j = 0; j < this.dungeon[i].length; j++) {
@@ -56,6 +44,22 @@ class Game{
           1000 / this.dungeon.length,
           600 / this.dungeon[i].length
         );
+      }
+    }
+  }
+
+  // _createEnemies() {
+  //   let randomX = (this.matrix.length / 2)
+  //   let randomY = (Math.floor(Math.random()) * (this.matrix[0].length - 2)) + 1
+  //   for (let i = 0; i < 2; i++) {
+  //     this.enemies.push(new Enemy(this, randomX, randomY));
+  //   }
+  // }
+
+  _checkDeaths() {
+    for (let i = 0; i < this.enemies.length; i++) {
+      if (this.enemies[i].health <= 0) {
+        this.enemies.splice(i, 1);
       }
     }
   }
@@ -112,10 +116,10 @@ class Game{
   }
 
   start() {
-    this._createDungeon(9, 9);
+    this._createDungeon(12, 8);
     this._createWalls();
     this.player = new Player(this)
-    this._createEnemy();
+    // this._createEnemies();
     this._assignControls();
     this._update();
   }

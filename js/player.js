@@ -3,16 +3,16 @@ class Player {
         this.health = health;
         this.attack = attack;
         this.defense = defense;
-        this.position = {x: 1, y: 1};
+        this.position = {x: 1, y: 2};
         this.color = "blue"
         this.game = game
     }
 
     moveLeft() {
-        const attacked = false;
+        let attacked = false;
         for (let i = 0; i < this.game.enemies.length; i++) {
-            if (this.position.x - 1 === this.game.enemies[i].x && this.position.y === this.game.enemies[i].position.y) {
-                enemy._receiveDamage(this.attackMele());
+            if (this.position.x - 1 === this.game.enemies[i].position.x && this.position.y === this.game.enemies[i].position.y) {
+                this.game.enemies[i]._receiveDamage(this.attackMele());
                 attacked = true
             }
         }
@@ -35,10 +35,10 @@ class Player {
     }
 
     moveUp() {
-        const attacked = false;
+        let attacked = false;
         for (let i = 0; i < this.game.enemies.length; i++) {
-            if (this.position.x === this.game.enemies[i].x && this.position.y - 1 === this.game.enemies[i].y) {
-                enemy._receiveDamage(this.attackMele());
+            if (this.position.x === this.game.enemies[i].position.x && this.position.y - 1 === this.game.enemies[i].position.y) {
+                this.game.enemies[i]._receiveDamage(this.attackMele());
                 attacked = true
             }
         }
@@ -48,10 +48,10 @@ class Player {
     }
 
     moveDown() {
-        const attacked = false;
+        let attacked = false;
         for (let i = 0; i < this.game.enemies.length; i++) {
-            if (this.position.x === this.game.enemies[i].x && this.position.y + 1 === this.game.enemies[i].y) {
-                enemy._receiveDamage(this.attackMele());
+            if (this.position.x === this.game.enemies[i].position.x && this.position.y + 1 === this.game.enemies[i].position.y) {
+                this.game.enemies[i]._receiveDamage(this.attackMele());
                 attacked = true
             }
         }
