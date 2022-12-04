@@ -54,10 +54,18 @@ class Game{
 
   _createEnemies() {
     //Creates two enemies in the right half, including middle row, without spawning in walls.
-    for (let i = 0; i < 2; i++) {
+    let prevX = 0;
+    let prevY = 0;
+    let i = 0;
+    while (i < 2) {
       let randomX = Math.floor(Math.random() * Math.ceil((this.dungeon.length - 2) / 2)) + Math.floor(this.dungeon.length / 2);
       let randomY = Math.floor(Math.random() * (this.dungeon[0].length - 2)) + 1;
-      this.enemies.push(new Enemy(this, randomX, randomY));
+      if (randomX !== prevX && randomY !== prevY) {
+        this.enemies.push(new Enemy(this, randomX, randomY));
+        prevX = randomX;
+        prevY = randomY;
+        i++
+      }
     }
   }
 
