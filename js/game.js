@@ -25,13 +25,13 @@ class Game{
           this.dungeon[i][0] = "brown"
       }
       for (let i = 0; i < this.dungeon.length; i++) {
-          this.dungeon[i][this.dungeon.length - 1] = "brown"
+          this.dungeon[i][this.dungeon[0].length - 1] = "brown"
       }
       //Left and right walls.
-      for (let i = 0; i < this.dungeon.length; i++) {
+      for (let i = 0; i < this.dungeon[0].length; i++) {
           this.dungeon[0][i] = "brown"
       }
-      for (let i = 0; i < this.dungeon.length; i++) {
+      for (let i = 0; i < this.dungeon[0].length; i++) {
           this.dungeon[this.dungeon.length - 1][i] = "brown"
       }
   }
@@ -175,7 +175,7 @@ class Game{
   }
 
   start() {
-    this._createDungeon(9, 9);
+    this._createDungeon(12, 8);
     this._createWalls();
     this._createExit();
     this.player = new Player(this);
