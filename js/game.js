@@ -113,7 +113,7 @@ class Game{
           setTimeout(() => {this.cooldown = false}, 200);
           break;
         case 'ArrowUp':
-          if (this.cooldown) {
+          if (!this.cooldown) {
             this.player.moveUp();
             this.enemies.forEach((enemy) => (enemy._moveEnemy()));
           }
