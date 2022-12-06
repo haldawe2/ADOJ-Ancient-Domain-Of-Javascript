@@ -75,10 +75,10 @@ class Game{
   }
 
   _renderPlayer() {
-    const lengthX = 1000 / this.dungeon.length;
-    const lengthY = 600 / this.dungeon[0].length;
-    this.ctx.fillStyle = `${this.player.color}`;
-    this.ctx.fillRect(this.player.position.x * lengthX, this.player.position.y * lengthY, 1000 / this.dungeon.length, 600 / this.dungeon[0].length)
+    const imgW = 1000 / this.dungeon.length;
+    const imgH = 600 / this.dungeon[0].length;
+    let imgToDraw = this.player.render;
+    this.ctx.drawImage(imgToDraw.img, imgToDraw.x, imgToDraw.y, imgToDraw.size, imgToDraw.size, imgW * this.player.position.x, imgH * this.player.position.y, imgW, imgH);
   }
 
   _renderHealth() {
@@ -88,15 +88,16 @@ class Game{
   }
 
   _renderEnemies() {
-    const lengthX = 1000 / this.dungeon.length;
-    const lengthY = 600 / this.dungeon[0].length;
+    const imgW = 1000 / this.dungeon.length;
+    const imgH = 600 / this.dungeon[0].length;
     for (let i = 0; i < this.enemies.length; i++) {
-      this.ctx.fillStyle = `${this.enemies[i].color}`
-      this.ctx.fillRect(this.enemies[i].position.x * lengthX, this.enemies[i].position.y * lengthY, 1000 / this.dungeon.length, 600 / this.dungeon[0].length)
-      this.ctx.font = "30px Arial"
-      this.ctx.fillStyle = 'black'
-      this.ctx.fillText(`${this.enemies[i].health}`, this.enemies[i].position.x * lengthX + 25, this.enemies[i].position.y * lengthY + 50)
+      let imgToDraw = this.enemies[i].render;
+      this.ctx.drawImage(imgToDraw.img, imgToDraw.x, imgToDraw.y, imgToDraw.size, imgToDraw.size, imgW * this.enemies[i].position.x, imgH * this.enemies[i].position.y, imgW, imgH);
+      this.ctx.fillStyle = 'red';
+      this.ctx.font = "30px Arial";
+      this.ctx.fillText(`${this.enemies[i].health}`, imgW * this.enemies[i].position.x + 25, imgH * this.enemies[i].position.y - 10)
     }
+
   }
 
 

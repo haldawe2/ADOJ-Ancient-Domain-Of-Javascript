@@ -5,7 +5,7 @@ class Enemy extends Player{
         this.attack = Math.floor(Math.random()*20) + 40;
         this.defense = defense;
         this.position = {x: positionX, y: positionY}
-        this.color = "red"
+        this.render = orkData
         this.game = game
     }
 

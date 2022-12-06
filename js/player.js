@@ -4,7 +4,7 @@ class Player {
         this.attack = attack;
         this.defense = defense;
         this.position = {x: 1, y: 3};
-        this.color = "blue";
+        this.render = warriorData;
         this.game = game;
     }
 
@@ -73,7 +73,7 @@ class Player {
         let closestDistance = Math.sqrt((this.x - this.game.enemies[0].x)**2 + (this.y - this.game.enemies[0].y)**2);
         for (let enemy of this.game.enemies) {
             let distance = Math.sqrt((this.x - enemy.position.x)**2 + (this.y - enemy.position.y)**2)
-            if (distance < closestDistance) {
+            if (distance > closestDistance) {
                 closestDistance = distance;
                 closestEnemy = enemy;
             }
