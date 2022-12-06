@@ -2,7 +2,7 @@ class Enemy extends Player{
     constructor(game, positionX, positionY, health = 20, defense = 10) {
         super(game);
         this.health = health;
-        this.attack = Math.floor(Math.random()*20) + 50;
+        this.attack = Math.floor(Math.random()*20) + 40;
         this.defense = defense;
         this.position = {x: positionX, y: positionY}
         this.color = "red"

@@ -102,6 +102,8 @@ class Game{
     }
   }
 
+
+
   _assignControls() {
     document.addEventListener('keydown', (event) => {
       switch (event.key) {

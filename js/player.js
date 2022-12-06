@@ -16,7 +16,7 @@ class Player {
                 attacked = true
             }
         }
-        if (this.game.dungeon[this.position.x - 1][this.position.y] !== 'brown' && !attacked) {
+        if (this.game.dungeon[this.position.x - 1][this.position.y] !== 'rgb(69, 68, 68)' && !attacked) {
             this.position.x -= 1;
         }
     }
@@ -29,7 +29,7 @@ class Player {
                 attacked = true
             }
         }
-        if (this.game.dungeon[this.position.x + 1][this.position.y] !== 'brown' && !attacked) {
+        if (this.game.dungeon[this.position.x + 1][this.position.y] !== 'rgb(69, 68, 68)' && !attacked) {
             this.position.x += 1;
         }
     }
@@ -42,7 +42,7 @@ class Player {
                 attacked = true
             }
         }
-        if (this.game.dungeon[this.position.x][this.position.y - 1] !== 'brown' && !attacked) {
+        if (this.game.dungeon[this.position.x][this.position.y - 1] !== 'rgb(69, 68, 68)' && !attacked) {
             this.position.y -= 1;
         }
     }
@@ -55,7 +55,7 @@ class Player {
                 attacked = true
             }
         }
-        if (this.game.dungeon[this.position.x][this.position.y + 1] !== 'brown' && !attacked) {
+        if (this.game.dungeon[this.position.x][this.position.y + 1] !== 'rgb(69, 68, 68)' && !attacked) {
             this.position.y += 1;
         }
     }
