@@ -14,7 +14,7 @@ class Game{
     for (let i = 0; i < x; i++) {
         this.dungeon[i] = new Array(y);
         for (let j = 0; j < y; j++) {
-            this.dungeon[i][j] = "white";
+            this.dungeon[i][j] = "rgb(151, 150, 150)";
         }
     }
 }
@@ -22,17 +22,17 @@ class Game{
   _createWalls() {
       //Top and bottom walls.
       for (let i = 0; i < this.dungeon.length; i++) {
-          this.dungeon[i][0] = "brown"
+          this.dungeon[i][0] = "rgb(69, 68, 68)"
       }
       for (let i = 0; i < this.dungeon.length; i++) {
-          this.dungeon[i][this.dungeon[0].length - 1] = "brown"
+          this.dungeon[i][this.dungeon[0].length - 1] = "rgb(69, 68, 68)"
       }
       //Left and right walls.
       for (let i = 0; i < this.dungeon[0].length; i++) {
-          this.dungeon[0][i] = "brown"
+          this.dungeon[0][i] = "rgb(69, 68, 68)"
       }
       for (let i = 0; i < this.dungeon[0].length; i++) {
-          this.dungeon[this.dungeon.length - 1][i] = "brown"
+          this.dungeon[this.dungeon.length - 1][i] = "rgb(69, 68, 68)"
       }
   }
 
@@ -80,13 +80,14 @@ class Game{
   _renderPlayer() {
     const lengthX = 1000 / this.dungeon.length;
     const lengthY = 600 / this.dungeon[0].length;
-    this.ctx.fillStyle = `${this.player.color}`
+    this.ctx.fillStyle = `${this.player.color}`;
     this.ctx.fillRect(this.player.position.x * lengthX, this.player.position.y * lengthY, 1000 / this.dungeon.length, 600 / this.dungeon[0].length)
   }
 
   _renderHealth() {
-    this.ctx.font = "30px Arial"
-    this.ctx.fillText(`Health: ${this.player.health}`, 1000/(this.dungeon.length*2), 600/(this.dungeon[0].length*2))
+    this.ctx.fillStyle = "white";
+    this.ctx.font = "30px Arial";
+    this.ctx.fillText(`Health: ${this.player.health}`, 1000/(this.dungeon.length*2), 600/(this.dungeon[0].length*2) + 10);
   }
 
   _renderEnemies() {
@@ -153,7 +154,7 @@ class Game{
   _createExit() {
     this.exit.x = this.dungeon.length - 1;
     this.exit.y = Math.floor(this.dungeon[0].length / 2);
-    this.dungeon[this.exit.x][this.exit.y] = 'green'
+    this.dungeon[this.exit.x][this.exit.y] = 'brown'
   }
 
   _checkWin() {

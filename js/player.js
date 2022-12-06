@@ -3,7 +3,7 @@ class Player {
         this.health = health;
         this.attack = attack;
         this.defense = defense;
-        this.position = {x: 1, y: 2};
+        this.position = {x: 1, y: 3};
         this.color = "blue";
         this.game = game;
     }
