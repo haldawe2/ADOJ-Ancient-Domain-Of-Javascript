@@ -34,6 +34,26 @@ canvas {
   margin-bottom: 50px;
 }
 
+/* Start Page */
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 8vh;
+}
+
+p {
+  font-size: 1.2em;
+  margin: 1.8vh 0; 
+}
+
+button {
+  font-size: 1.6em;
+  margin: 4vh 0;
+  border-style: none;
+  padding: 0.8vh 2vh;
+  border-radius: 10%;
+}
+
 /* Auxiliar classes */
 
 .hidden {
