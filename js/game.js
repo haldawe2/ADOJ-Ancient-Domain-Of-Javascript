@@ -14,7 +14,7 @@ class Game{
     for (let i = 0; i < x; i++) {
         this.dungeon[i] = new Array(y);
         for (let j = 0; j < y; j++) {
-            this.dungeon[i][j] = "rgb(151, 150, 150)";
+            this.dungeon[i][j] = floorData;
         }
     }
 }
@@ -22,32 +22,29 @@ class Game{
   _createWalls() {
       //Top and bottom walls.
       for (let i = 0; i < this.dungeon.length; i++) {
-          this.dungeon[i][0] = "rgb(69, 68, 68)"
+          this.dungeon[i][0] = wallData;
       }
       for (let i = 0; i < this.dungeon.length; i++) {
-          this.dungeon[i][this.dungeon[0].length - 1] = "rgb(69, 68, 68)"
+          this.dungeon[i][this.dungeon[0].length - 1] = wallData;
       }
       //Left and right walls.
       for (let i = 0; i < this.dungeon[0].length; i++) {
-          this.dungeon[0][i] = "rgb(69, 68, 68)"
+          this.dungeon[0][i] = wallData;
       }
       for (let i = 0; i < this.dungeon[0].length; i++) {
-          this.dungeon[this.dungeon.length - 1][i] = "rgb(69, 68, 68)"
+          this.dungeon[this.dungeon.length - 1][i] = wallData;
       }
   }
 
   _renderDungeon() {
     //Divides canvas in equal squares depending on dungeon size,
     //then renders the image/color inside the correspondent dungeon coordinates.
+    const imgH = 600/this.dungeon[0].length;
+    const imgW = 1000/this.dungeon.length;
     for (let i = 0; i < this.dungeon.length; i++) {
       for (let j = 0; j < this.dungeon[i].length; j++) {
-        this.ctx.fillStyle = `${this.dungeon[i][j]}`;
-        this.ctx.fillRect(
-          i * (1000 / this.dungeon.length),
-          j * (600 / this.dungeon[i].length),
-          1000 / this.dungeon.length,
-          600 / this.dungeon[i].length
-        );
+        let imgToDraw = this.dungeon[i][j];
+        this.ctx.drawImage(imgToDraw.img, imgToDraw.x, imgToDraw.y, imgToDraw.size, imgToDraw.size, imgW * i, imgH * j, imgW, imgH);
       }
     }
   }
@@ -156,7 +153,7 @@ class Game{
   _createExit() {
     this.exit.x = this.dungeon.length - 1;
     this.exit.y = Math.floor(this.dungeon[0].length / 2);
-    this.dungeon[this.exit.x][this.exit.y] = 'brown'
+    this.dungeon[this.exit.x][this.exit.y] = exitData
   }
 
   _checkWin() {
