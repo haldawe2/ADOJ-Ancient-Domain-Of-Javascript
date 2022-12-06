@@ -84,12 +84,20 @@ class Game{
     this.ctx.fillRect(this.player.position.x * lengthX, this.player.position.y * lengthY, 1000 / this.dungeon.length, 600 / this.dungeon[0].length)
   }
 
+  _renderHealth() {
+    this.ctx.font = "30px Arial"
+    this.ctx.fillText(`Health: ${this.player.health}`, 1000/(this.dungeon.length*2), 600/(this.dungeon[0].length*2))
+  }
+
   _renderEnemies() {
     const lengthX = 1000 / this.dungeon.length;
     const lengthY = 600 / this.dungeon[0].length;
     for (let i = 0; i < this.enemies.length; i++) {
       this.ctx.fillStyle = `${this.enemies[i].color}`
       this.ctx.fillRect(this.enemies[i].position.x * lengthX, this.enemies[i].position.y * lengthY, 1000 / this.dungeon.length, 600 / this.dungeon[0].length)
+      this.ctx.font = "30px Arial"
+      this.ctx.fillStyle = 'black'
+      this.ctx.fillText(`${this.enemies[i].health}`, this.enemies[i].position.x * lengthX + 25, this.enemies[i].position.y * lengthY + 50)
     }
   }
 
@@ -171,6 +179,7 @@ class Game{
     this._renderDungeon();
     this._renderEnemies();
     this._renderPlayer();
+    this._renderHealth();
     window.requestAnimationFrame(() => this._update());
   }
 
