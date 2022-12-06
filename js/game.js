@@ -102,7 +102,7 @@ class Game{
             this.enemies.forEach((enemy) => (enemy._moveEnemy()));
           }
           this.cooldown = true;
-          setTimeout(() => {this.cooldown = false}, 500);
+          setTimeout(() => {this.cooldown = false}, 200);
           break;
         case 'ArrowRight':
           if (!this.cooldown) {
@@ -110,7 +110,7 @@ class Game{
             this.enemies.forEach((enemy) => (enemy._moveEnemy()));
           }
           this.cooldown = true;
-          setTimeout(() => {this.cooldown = false}, 500);
+          setTimeout(() => {this.cooldown = false}, 200);
           break;
         case 'ArrowUp':
           if (this.cooldown) {
@@ -118,7 +118,7 @@ class Game{
             this.enemies.forEach((enemy) => (enemy._moveEnemy()));
           }
           this.cooldown = true;
-          setTimeout(() => {this.cooldown = false}, 500);
+          setTimeout(() => {this.cooldown = false}, 200);
           break;
         case 'ArrowDown':
           if (!this.cooldown) {
@@ -126,7 +126,7 @@ class Game{
             this.enemies.forEach((enemy) => (enemy._moveEnemy()));
           }
           this.cooldown = true;
-          setTimeout(() => {this.cooldown = false}, 500);
+          setTimeout(() => {this.cooldown = false}, 200);
           break;
         case 'q':
           if (!this.cooldown) {
@@ -134,7 +134,7 @@ class Game{
             this.enemies.forEach((enemy) => (enemy._moveEnemy()));
           }
           this.cooldown = true;
-          setTimeout(() => {this.cooldown = false}, 500);
+          setTimeout(() => {this.cooldown = false}, 200);
           break;
         default:
           break;

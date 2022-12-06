@@ -28,21 +28,28 @@ class Enemy extends Player{
             return;
         }
         // If not, move.
-        if (this.position.y < this.game.player.position.y && this.game.dungeon[this.position.x][this.position.y + 1] !== 'brown') {
-            this.position.y += 1;
-            return;
+        if (!this.game.enemies.some((blockerPath) => {blockerPath.position.x === this.position.x && blockerPath.position.y === this.position.y + 1})) {
+            if (this.position.y < this.game.player.position.y && this.game.dungeon[this.position.x][this.position.y + 1] !== 'brown') {
+                this.position.y += 1;
+                return;
+            }
         }
-        if (this.position.y > this.game.player.position.y && this.game.dungeon[this.position.x][this.position.y - 1] !== 'brown') {
-            this.position.y -= 1
-            return;
+        if (!this.game.enemies.some((blockerPath) => {blockerPath.position.x === this.position.x && blockerPath.position.y === this.position.y - 1})) {
+            if (this.position.y > this.game.player.position.y && this.game.dungeon[this.position.x][this.position.y - 1] !== 'brown') {
+                this.position.y -= 1
+                return;
+            }
         }
-        if (this.position.x < this.game.player.position.x && this.game.dungeon[this.position.x + 1][this.position.y] !== 'brown') {
-            this.position.x += 1
-            return;
+        if (!this.game.enemies.some((blockerPath) => {blockerPath.position.x === this.position.x + 1 && blockerPath.position.y === this.position.y})) {
+            if (this.position.x < this.game.player.position.x && this.game.dungeon[this.position.x + 1][this.position.y] !== 'brown') {
+                this.position.x += 1
+                return;
+            }
         }
-        if (this.position.x > this.game.player.position.x && this.game.dungeon[this.position.x - 1][this.position.y] !== 'brown') {
-            this.position.x -= 1
-            return;
-        }
+        if (!this.game.enemies.some((blockerPath) => {blockerPath.position.x === this.position.x - 1 && blockerPath.position.y === this.position.y})) {
+            if (this.position.x > this.game.player.position.x && this.game.dungeon[this.position.x - 1][this.position.y] !== 'brown') {
+                this.position.x -= 1
+                return;
+            }
+        }}
     }
-}
