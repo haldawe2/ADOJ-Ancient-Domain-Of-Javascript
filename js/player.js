@@ -16,6 +16,7 @@ class Player {
         this.position.y === this.game.enemies[i].position.y
       ) {
         this.game.enemies[i]._receiveDamage(this.attackMele());
+        this.game._checkDeaths();
         attacked = true;
       }
     }
@@ -35,6 +36,7 @@ class Player {
         this.position.y === this.game.enemies[i].position.y
       ) {
         this.game.enemies[i]._receiveDamage(this.attackMele());
+        this.game._checkDeaths();
         attacked = true;
       }
     }
@@ -54,6 +56,7 @@ class Player {
         this.position.y - 1 === this.game.enemies[i].position.y
       ) {
         this.game.enemies[i]._receiveDamage(this.attackMele());
+        this.game._checkDeaths();
         attacked = true;
       }
     }
@@ -73,6 +76,7 @@ class Player {
         this.position.y + 1 === this.game.enemies[i].position.y
       ) {
         this.game.enemies[i]._receiveDamage(this.attackMele());
+        this.game._checkDeaths();
         attacked = true;
       }
     }

@@ -227,7 +227,6 @@ class Game {
   _update() {
     this._checkWin();
     this._checkLoss();
-    this._checkDeaths();
     this._renderDungeon();
     this._renderEnemies();
     this._renderPlayer();
