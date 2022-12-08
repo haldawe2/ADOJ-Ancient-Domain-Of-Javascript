@@ -1,7 +1,6 @@
-# Game name
-ADOJ: Ancient Domains of Javascript
-<!-- When you finish, add a nice screenshot of your game -->
-<!--[<img src="./img/page.png">]()-->
+# ADOJ: Ancient Domains of Javascript
+
+<img src="img/gameImg.png">
 
 ## Description
 
@@ -24,16 +23,15 @@ Minimum user stories:
 
 ## File structure
 
-- <code>game.js</code>: contains all the elements for the game to work. Methods: start(), \_update()
-- <code>scripts.js</code>: contains all the DOM manipulation code to start the game
-- <code>sprites.js</code>: contains all sprites to be used in the game
-- <code>player.js</code>: contains all information related to the player
-- <code>enemies.js</code>: contains all information related to the enemies
-- <code>dungeon.js</code>: contains all generation and rendering of the dungeon
+- <code>game.js</code>: contains all the elements for the game to work.
+- <code>scripts.js</code>: contains all the DOM manipulation code to start the game.
+- <code>images.js</code>: contains all sprites to be used in the game.
+- <code>player.js</code>: contains all information related to the player.
+- <code>enemies.js</code>: contains all information related to the enemies.
+- <code>dungeon.js</code>: contains all generation and rendering of the dungeon.
+- <code>arrow.js</code>: contains data to control the rendering of the arrow.
 
 ## Useful links
 
-<!-- When you finish, add these links and commit -->
-
-- [Presentation slides]()
-- [Deployed game]()
+- [Presentation slides](https://docs.google.com/presentation/d/e/2PACX-1vQCPrteCtswD17NhD3BCMRMKBK_yPniTbStzzoKpww2PJ5FYDCVyRalq6M1EY6QUEVnZkZmU7hifxPV/pub?start=false&loop=false&delayms=10000)
+- [Deployed game](https://haldawe2.github.io/ADOJ-Ancient-Domain-Of-Javascript/)
